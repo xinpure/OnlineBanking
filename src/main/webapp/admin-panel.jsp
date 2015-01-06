@@ -29,7 +29,7 @@ $(function () {
 	        <p><span>Add User</span></p>
 	      </li>
 	      <li>
-	        <div class="ico _2"><a href="view-user.jsp"></a></div>
+	        <div class="ico _2"><a href="users"></a></div>
 	        <p><span>View User</span></p>
 	      </li>
 	      <li>

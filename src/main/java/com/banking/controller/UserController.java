@@ -2,7 +2,9 @@ package com.banking.controller;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -70,6 +72,14 @@ public class UserController {
       return "admin-login";
     }
     return "redirect:/admin-panel.jsp";
+  }
+  
+  @RequestMapping(value = "/users", method = RequestMethod.GET)
+  public String getUsersForm(Model model) {
+    List<User> userList = new ArrayList<User>();
+    userList = userService.viewUsers();
+    model.addAttribute("userList", userList);
+    return "view-user";
   }
   
   @InitBinder

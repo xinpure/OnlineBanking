@@ -61,6 +61,18 @@ public class UserRepositoryImpl implements UserRepository {
       return false;
   }
 
+  public List<User> getUsers() {
+    Session session = HibernateSessionFactory.getSession();
+    String hql="from User";
+    Query query = session.createQuery(hql);
+    List<User> listUser = query.list();
+    session.close();
+    if(listUser.size() != 0)
+        return listUser;    
+    else
+        return null;
+  }
+  
   public User getUserById(int userID) {
     // TODO Auto-generated method stub
     return null;

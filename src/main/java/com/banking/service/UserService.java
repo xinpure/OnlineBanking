@@ -1,5 +1,7 @@
 package com.banking.service;
 
+import java.util.List;
+
 import com.banking.domain.User;
 
 public interface UserService {
@@ -9,4 +11,6 @@ public interface UserService {
   boolean login(User user);
   
   boolean adminLogin(String username, String password);
+  
+  List<User> viewUsers();
 }
