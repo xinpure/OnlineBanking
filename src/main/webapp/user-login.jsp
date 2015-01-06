@@ -32,7 +32,6 @@
 		<div style="float: center;">
 			<form:form modelAttribute="user" class="login"
 				onsubmit="return validateLogin()">
-				<fieldset>
 					<h1>User Login</h1>
 					<form:input path="username" type="text" id="username"
 						class="login-input" placeholder="Username"
@@ -43,11 +42,10 @@
 						onfocus="clearTD('passwordTD')" />
 					<div id="passwordTD"></div>
 					<input type="submit" value="Login" class="login-submit">
-					${loginStatus}
+					<div class="loginStatus">${loginStatus}</div>
 					<p class="login-help">
 						<a href="forget-password.jsp">Forgot password?</a>
 					</p>
-				</fieldset>
 			</form:form>
 		</div>
 	</div>

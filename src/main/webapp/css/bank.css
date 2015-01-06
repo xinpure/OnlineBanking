@@ -147,6 +147,15 @@ table {
   text-shadow: 0 -1px rgba(0, 0, 0, 0.4);
 }
 
+.login .loginStatus {
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: red;
+  text-align: center;
+  text-shadow: 0 -1px rgba(0, 0, 0, 0.4);	
+}
+
 .login-input {
   display: block;
   width: 100%;

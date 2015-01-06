@@ -37,7 +37,7 @@
     <div id="usernameTD"></div>
     <input type="password" name = "password" id="password" class="login-input" placeholder="Password" onfocus="clearTD('passwordTD')">
     <div id="passwordTD"></div>
-    ${loginStatus}
+    <div class="loginStatus">${loginStatus}</div>
     <input type="submit" value="Login" class="login-submit">
   </form:form>
 </div >
