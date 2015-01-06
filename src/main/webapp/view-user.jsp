@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.util.List"%>
+<%@ page import="com.banking.domain.User"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -31,7 +34,9 @@
     <th scope="col">Edit</th> 
     <th scope="col">Remove</th> 
   </tr>  
-  <%if("1".equals(username)) { %>
+	<c:forEach items="&(userList)" var="user">
+	<c:out value ="$(user.username)"/>
+  <c:when test="${user.username.equals(username)}" >
   <tr>  
     <form action="" method="post">
     <td>1</td>  
@@ -41,67 +46,35 @@
     <td><input type="text" size="15" value="5" name="email"></td>
     <td><input type="text" size="15" value="6" name="birth"></td>
     <td><input type="text" size="15" value="7" name="ssn"></td>  
-	<td style="width:65px;"><input type="hidden" name="username" value="1">
+	<td style="width:65px;"><input type="hidden" name="username" value="$(user.username)" />
 	<input type="submit" value="Submit">					
 	</td></form>
 	<td style="width:70px;"><form action="" method="post">
-	<input type="hidden" name="username" value="1">
+	<input type="hidden" name="username" value="$(user.username)">
 	<input type="submit" value="Remove">					
 	</form></td>
   </tr>  
-  <%}else {%>
+  </c:when>
+  <c:otherwise>
   <tr>  
-    <td>1</td>  
-    <td>2</td>  
-    <td>3</td>  
-    <td>4</td>  
-    <td>5</td>
-    <td>6</td>
-    <td>7</td>
+    <td>$(user.username)</td>  
+    <td>$(user.password)</td>  
+    <td>$(user.address)</td>  
+    <td>$(user.phoneNum)</td>  
+    <td>$(user.email)</td>
+    <td>$(user.birth)</td>
+    <td>$(user.ssn)</td>
     <td style="width:65px;"><form action=view-user.jsp method="post">
-	<input type="hidden" name="username" value="1">
+	<input type="hidden" name="username" value="$(user.username)">
 	<input type="submit" value="Modify">					
 	</form></td>
 	<td style="width:70px;"><form action="" method="post">
-	<input type="hidden" name="username" value="1">
+	<input type="hidden" name="username" value="$(user.username)">
 	<input type="submit" value="Remove">					
 	</form></td>
   </tr>  
-  <%}%> 
-  <tr>  
-    <td class="alt">11</td>  
-    <td class="alt">2</td>  
-    <td class="alt">3</td>  
-    <td class="alt">4</td>  
-    <td class="alt">5</td>
-    <td class="alt">6</td>
-    <td class="alt">7</td>
-    <td class="alt"><form action=view-user.jsp method="post">
-	<input type="hidden" name="username" value="11">
-	<input type="submit" value="Modify">					
-	</form></td>
-	<td class="alt"><form action="" method="post">
-	<input type="hidden" name="username" value="11">
-	<input type="submit" value="Remove">					
-	</form></td>
-  </tr>  
-  <tr>  
-    <td>111</td>  
-    <td>2</td>  
-    <td>3</td>  
-    <td>4</td> 
-    <td>5</td>
-    <td>6</td>
-    <td>7</td>
-    <td><form action=view-user.jsp method="post">
-	<input type="hidden" name="username" value="111">
-	<input type="submit" value="Modify">					
-	</form></td>
-	<td><form action="" method="post">
-	<input type="hidden" name="username" value="111">
-	<input type="submit" value="Remove">					
-	</form></td>
-  </tr>  
+  </c:otherwise>
+  </c:forEach>
 </table>  
 <div style="width:200px; margin-top:50px;">
 	<input type="button" value="Back" class="login-submit" onclick="javascript:history.go(-1);" />
