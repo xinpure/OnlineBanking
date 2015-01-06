@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.banking.domain.Account" table="Account">
+		<id name="accountID">
+			<generator class="native"></generator>
+		</id>
+
+		<property name="userID"></property>
+		<property name="openDate"></property>
+		<property name="status"></property>
+
+		<joined-subclass name="com.banking.domain.Checking"
+			table="Checking">
+			<key column="checkingID"></key>
+			<property name="balance"></property>
+		</joined-subclass>
+
+		<joined-subclass name="com.banking.domain.Saving"
+			table="Saving">
+			<key column="savingID"></key>
+			<property name="balance"></property>
+			<property name="interestRate"></property>
+		</joined-subclass>
+
+		<joined-subclass name="com.banking.domain.CreditCard"
+			table="CreditCard">
+			<key column="cardID"></key>
+			<property name="balance"></property>
+			<property name="expireDate"></property>
+			<property name="CVN"></property>
+		</joined-subclass>
+
+	</class>
+
+</hibernate-mapping>

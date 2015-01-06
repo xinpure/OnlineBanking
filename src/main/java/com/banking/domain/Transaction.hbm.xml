@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+          <hibernate-mapping>
+          <class name="com.banking.domain.Transaction" table="Transaction">
+          <id name="transID">
+          <generator class="native"></generator>
+          </id>
+         
+          <property name="userID"></property>
+          <property name="detail"></property>
+	  	  <property name="transDate"></property>
+	  	  <property name="amount"></property>
+	  	  <property name="availableAmount"></property>
+          
+          <joined-subclass name="com.banking.domain.CheckingTrans" table="CheckingTrans">
+          <key column="checkingTransID"></key>
+          <property name="checkingID"></property>
+          </joined-subclass>
+          
+          <joined-subclass name="com.banking.domain.SavingTrans" table="SavingTrans">
+          <key column="savingTransID"></key>
+          <property name="savingID"></property>
+          </joined-subclass>
+    
+          <joined-subclass name="com.banking.domain.CreditCardTrans" table="CreditCardTrans">
+          <key column="cardTransID"></key>
+          <property name="cardID"></property>
+          </joined-subclass>
+      
+          </class>
+          
+          </hibernate-mapping>
