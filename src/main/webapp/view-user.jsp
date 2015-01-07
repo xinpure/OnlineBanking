@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>View User</title>
 <link type="text/css" rel="Stylesheet" href="css/bank.css" />
+
 </head>
 <body class="keBody">
 <h1 class="keTitle">View User</h1>
@@ -75,7 +76,7 @@
   </c:forEach>
 </table>  
 <div style="width:200px; margin-top:50px;">
-	<input type="button" value="Back" class="login-submit" onclick="javascript:history.go(-1);" />
+	<input type="button" value="Back" class="login-submit" onclick="window.location.href='admin-panel.jsp'" />
 </div>
 </div>
 </div>
