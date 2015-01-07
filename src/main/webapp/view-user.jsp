@@ -12,7 +12,6 @@
 
 </head>
 <body class="keBody">
-<<<<<<< HEAD
 <h1 class="keTitle">View User</h1>
 <div class="kePublic-white">
 <div>
@@ -95,7 +94,7 @@
 			</table>
 			<div style="width: 200px; margin-top: 50px;">
 				<input type="button" value="Back" class="login-submit"
-					onclick="window.location.replace(" users")" />
+					onclick="window.location.href='admin-panel.jsp'" />
 			</div>
 		</div>
 	</div>
