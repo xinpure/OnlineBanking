@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="java.util.List"%>
-<%@ page import="com.banking.domain.User"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -14,7 +12,6 @@
 <h1 class="keTitle">View User</h1>
 <div class="kePublic-white">
 <div>
-<% String username=request.getParameter("username"); %>
 <form class="form-wrapper cf">
         <input type="text" placeholder="Search here..." required>
         <button type="submit">Search</button>
@@ -34,46 +31,47 @@
     <th scope="col">Edit</th> 
     <th scope="col">Remove</th> 
   </tr>  
-	<c:forEach items="&(userList)" var="user">
-	<c:out value ="$(user.username)"/>
-  <c:when test="${user.username.equals(username)}" >
+	<c:forEach items="${userList}" var="user">
+	<c:choose>
+  <c:when test="${user.username eq param.username}" >
   <tr>  
     <form action="" method="post">
-    <td>1</td>  
-    <td><input type="text" size="15" value="2" name="password"></td>  
-    <td><input type="text" size="15" value="3" name="address"></td>  
-    <td><input type="text" size="15" value="4" name="contact"></td>  
-    <td><input type="text" size="15" value="5" name="email"></td>
-    <td><input type="text" size="15" value="6" name="birth"></td>
-    <td><input type="text" size="15" value="7" name="ssn"></td>  
-	<td style="width:65px;"><input type="hidden" name="username" value="$(user.username)" />
+    <td><c:out value="${user.username}"></c:out></td>  
+    <td><input type="text" size="15" value="${user.password}" name="password"></td>  
+    <td><input type="text" size="15" value="${user.address}" name="address"></td>  
+    <td><input type="text" size="15" value="${user.phoneNum}" name="contact"></td>  
+    <td><input type="text" size="15" value="${user.email}" name="email"></td>
+    <td><input type="text" size="15" value="${user.birth}" name="birth"></td>
+    <td><input type="text" size="15" value="${user.ssn}" name="ssn"></td>  
+	<td style="width:65px;"><input type="hidden" name="username" value="${user.username}"/>
 	<input type="submit" value="Submit">					
 	</td></form>
 	<td style="width:70px;"><form action="" method="post">
-	<input type="hidden" name="username" value="$(user.username)">
+	<input type="hidden" name="username" value="${user.username}">
 	<input type="submit" value="Remove">					
 	</form></td>
   </tr>  
   </c:when>
   <c:otherwise>
   <tr>  
-    <td>$(user.username)</td>  
-    <td>$(user.password)</td>  
-    <td>$(user.address)</td>  
-    <td>$(user.phoneNum)</td>  
-    <td>$(user.email)</td>
-    <td>$(user.birth)</td>
-    <td>$(user.ssn)</td>
+    <td><c:out value="${user.username}"></c:out></td>  
+    <td><c:out value="${user.password}"></c:out></td>  
+    <td><c:out value="${user.address}"></c:out></td>  
+    <td><c:out value="${user.phoneNum}"></c:out></td>  
+    <td><c:out value="${user.email}"></c:out></td>
+    <td><c:out value="${user.birth}"></c:out></td>
+    <td><c:out value="${user.ssn}"></c:out></td>
     <td style="width:65px;"><form action=view-user.jsp method="post">
-	<input type="hidden" name="username" value="$(user.username)">
+	<input type="hidden" name="username" value="${user.username}">
 	<input type="submit" value="Modify">					
 	</form></td>
 	<td style="width:70px;"><form action="" method="post">
-	<input type="hidden" name="username" value="$(user.username)">
+	<input type="hidden" name="username" value="${user.username}">
 	<input type="submit" value="Remove">					
 	</form></td>
   </tr>  
   </c:otherwise>
+  </c:choose>
   </c:forEach>
 </table>  
 <div style="width:200px; margin-top:50px;">

@@ -42,7 +42,6 @@
 
 		<form:form modelAttribute="newUser" class="login1"
 			onsubmit="return validateAdd()">
-			<fieldset>
 				<h1>Add User</h1>
 				<form:input path="username" type="text" id="username"
 					class="login1-input" placeholder="Username"
@@ -79,7 +78,6 @@
 						type="button" value="Back" class="login1-submit"
 						onclick="javascript:history.go(-1);">
 				</div>
-			</fieldset>
 		</form:form>
 	</div>
 	<%@ include file="footer.jsp"%>
