@@ -22,7 +22,7 @@ public class Saving extends Account{
 
   /** full constructor */
   public Saving(int accountID, int userID, Date openDate, String status, int savingID, double balance, double interestRate) {
-    super(accountID, userID, openDate, status);
+    super(accountID, userID, status);
     this.savingID = savingID;
     this.balance = balance;
     this.interestRate = interestRate;

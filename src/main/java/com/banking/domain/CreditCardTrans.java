@@ -18,7 +18,7 @@ public class CreditCardTrans extends Transaction {
 
 	public CreditCardTrans(int cardTransID, int cardID, int userID, int transID, String detail, Date transDate, 
 			double amount, double availableAmount) {
-		super(transID, userID, detail, transDate, amount, availableAmount);
+		super(transID, userID, detail, amount, availableAmount);
 		this.cardTransID = cardTransID;
 		this.cardID = cardID;
 	}

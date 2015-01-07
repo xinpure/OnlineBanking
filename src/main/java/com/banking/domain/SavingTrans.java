@@ -18,7 +18,7 @@ public class SavingTrans extends Transaction {
 
 	public SavingTrans(int savingTransID, int savingID, int userID, int transID, String detail, Date transDate, 
 			double amount, double availableAmount) {
-		super(transID, userID, detail, transDate, amount, availableAmount);
+		super(transID, userID, detail, amount, availableAmount);
 		this.savingTransID = savingTransID;
 		this.savingID = savingID;
 	}

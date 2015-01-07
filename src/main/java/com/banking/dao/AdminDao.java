@@ -36,21 +36,21 @@ public interface AdminDao {
 	/**
 	 * open account
 	 */	
-	public boolean openChecking(Checking account);
-	public boolean openSaving(Saving account);
-	public boolean openCreditCard(CreditCard account);
+	public boolean openChecking(String username, Checking account);
+	public boolean openSaving(String username, Saving account);
+	public boolean openCreditCard(String username, CreditCard account);
 	
 	/**
 	 * freeze account
 	 */	
-	public boolean freezeChecking(int accountID);
-	public boolean freezeSaving(int accountID);
-	public boolean freezeCreditCard(int accountID);	
+	public boolean freezeChecking(String username, String accountType);
+	public boolean freezeSaving(String username, String accountType);
+	public boolean freezeCreditCard(String username, String accountType);	
 	
 	/**
 	 * unfreeze account
 	 */	
-	public boolean unfreezeChecking(int accountID);
-	public boolean unfreezeSaving(int accountID);
-	public boolean unfreezeCreditCard(int accountID);	
+	public boolean unfreezeChecking(String username, String accountType);
+	public boolean unfreezeSaving(String username, String accountType);
+	public boolean unfreezeCreditCard(String username, String accountType);	
 }
