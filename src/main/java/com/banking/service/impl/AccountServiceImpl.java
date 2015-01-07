@@ -21,4 +21,8 @@ public class AccountServiceImpl implements AccountService {
   public boolean freezeAccount(String username, String accountType) {
     return accountRepository.freezeAccount(username, accountType);
   }
+  
+  public boolean releaseAccount(String username, String accountType) {
+    return accountRepository.releaseAccount(username, accountType);
+  }
 }

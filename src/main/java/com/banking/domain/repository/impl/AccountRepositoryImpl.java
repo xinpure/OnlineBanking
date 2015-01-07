@@ -19,7 +19,8 @@ import com.banking.util.HibernateSessionFactory;
 public class AccountRepositoryImpl implements AccountRepository {
   private HibernateBaseDao helper = new HibernateBaseDao();
 
-  public boolean openAccount(Account account) {
+  public boolean openAccount(Account account)
+  {
     if (account instanceof Checking) {
       return openChecking((Checking) account);
     }
@@ -56,7 +57,15 @@ public class AccountRepositoryImpl implements AccountRepository {
           return false;       
   }
   
-  public boolean freezeAccount(String username, String accountType)
+  public boolean freezeAccount(String username, String accountType) {
+    return actionAccount(username, accountType, "freeze");
+  }
+  
+  public boolean releaseAccount(String username, String accountType) {
+    return actionAccount(username, accountType, "release");
+  }
+  
+  public boolean actionAccount(String username, String accountType, String method)
   {
       if(accountType.equals("checking"))
       {
@@ -76,7 +85,7 @@ public class AccountRepositoryImpl implements AccountRepository {
                   if(helper.search(Checking.class, listChecking.get(0).getAccountID()) != null)
                   {
                       Checking checking = (Checking)helper.search(Checking.class, listChecking.get(0).getAccountID());
-                      checking.setStatus("freeze");
+                      checking.setStatus(method);
                       if(helper.update(checking))
                           return true;
                       else
@@ -122,7 +131,7 @@ public class AccountRepositoryImpl implements AccountRepository {
                   if(helper.search(Saving.class, listSaving.get(0).getAccountID()) != null)
                   {               
                       Saving saving = (Saving)helper.search(Saving.class, listSaving.get(0).getAccountID());
-                      saving.setStatus("freeze");
+                      saving.setStatus(method);
                       if(helper.update(saving))
                           return true;
                       else
@@ -167,7 +176,7 @@ public class AccountRepositoryImpl implements AccountRepository {
                   if(helper.search(CreditCard.class, listCard.get(0).getAccountID()) != null)
                   {
                       CreditCard card = (CreditCard)helper.search(CreditCard.class, listCard.get(0).getAccountID());
-                      card.setStatus("freeze");
+                      card.setStatus(method);
                       if(helper.update(card))
                           return true;
                       else
@@ -197,4 +206,5 @@ public class AccountRepositoryImpl implements AccountRepository {
       else
           return false;
   } 
+
 }

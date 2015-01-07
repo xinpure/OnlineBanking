@@ -51,12 +51,17 @@ public class AccountController {
     return "freeze-account";
   }
   
-  @RequestMapping(value = "/freezeReleaseAccount", params = "Freeze",
-      method = RequestMethod.POST)
+  @RequestMapping(value = "/freezeReleaseAccount", method = RequestMethod.POST)
   public String processFreezeAccountForm(
       @RequestParam("account") String accountType,
-      @RequestParam("username") String username) {
-    accountService.freezeAccount(username, accountType);
+      @RequestParam("username") String username,
+      @RequestParam("action") String actionType) {
+    if (actionType.equalsIgnoreCase("freeze")) {
+      accountService.freezeAccount(username, accountType);
+    }
+    else if (actionType.equalsIgnoreCase("avaialbe")) {
+      accountService.releaseAccount(username, accountType);
+    }
     return "redirect:/admin-panel.jsp";
   }
   
