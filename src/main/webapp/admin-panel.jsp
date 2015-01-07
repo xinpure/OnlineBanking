@@ -33,7 +33,7 @@ $(function () {
 	        <p><span>View User</span></p>
 	      </li>
 	      <li>
-	        <div class="ico _3"><a href="open-account.jsp"></a></div>
+	        <div class="ico _3"><a href="openAccount"></a></div>
 	        <p><span>Open Account</span></p>
 	      </li>
 	      <li>
