@@ -25,7 +25,7 @@ $(function () {
 	<div id="order_nav">
 	    <ul class="list not_ie">
 	      <li>
-	        <div class="ico _1"><a href="account-balance.jsp"></a></div>
+	        <div class="ico _1"><a href="balance"></a></div>
 	        <p><span>Account Balance</span></p>
 	      </li>
 	      <li>

@@ -87,9 +87,4 @@ public class UserRepositoryImpl implements UserRepository {
       return false;
   }
 
-
-  public User getUserById(int userID) {
-    // TODO Auto-generated method stub
-    return null;
-  }
 }

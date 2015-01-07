@@ -18,7 +18,4 @@ public interface UserRepository {
   
   
   
-  User getUserById(int userID);
-  
-  
 }

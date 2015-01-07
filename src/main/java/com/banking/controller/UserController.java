@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -54,7 +56,7 @@ public class UserController {
     if (loginStatus == false) {
       model.addAttribute("loginStatus", "Login failed");
       return "user-login";
-    } 
+    }
     return "redirect:/user-panel.jsp";
   }
 
