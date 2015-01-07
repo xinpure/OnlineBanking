@@ -8,7 +8,7 @@
 <link type="text/css" rel="Stylesheet" href="css/bank.css" />
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/userFreeze.js"></script>
-<script type="text/javascript" src="js/dropDown.js"></script>
+<script type="text/javascript" src="js/dropDown1.js"></script>
 </head>
 <body class="keBody">
 <h1 class="keTitle">Freeze/Release Account</h1>
@@ -25,9 +25,16 @@
 	</ul>
     <input type="text" id="username" class="login-input" placeholder="Which user you freeze" onfocus="clearTD('usernameTD')">
     <div id="usernameTD"></div>
-
-    <input type="submit" value="Freeze" class="login-submit">
-    <input type="submit" value="Release" class="login-submit">
+	<input type="text" id="action" class="login-input" placeholder="Freeze or release" onfocus="clearTD('actionTD')" autofocus/>
+	<div id="actionTD"></div>
+	<div style="position:absolute; top:122px; left:0px">
+	<div id="btn_come_from_drop_down1" class="select_normal"></div>
+	<ul id="come_from_drop_down1" class="area">
+		<li class="active">freeze</li>
+		<li>available</li>
+	</ul>
+ 	</div>
+    <input type="submit" value="Submit" class="login-submit">
     <input type="button" value="Back" class="login-submit" onclick="javascript:history.go(-1);">
   </form>
 </div>

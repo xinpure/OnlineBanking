@@ -161,9 +161,9 @@ public class AdminDaoImpl implements AdminDao{
 	}
 	
 	/**
-	 * freeze account
+	 * freeze/release account
 	 */	
-	public boolean freezeAccount(String username, String accountType)
+	public boolean actionAccount(String username, String accountType, String method)
 	{
 		if(accountType.equals("checking"))
 		{
@@ -183,7 +183,7 @@ public class AdminDaoImpl implements AdminDao{
 					if(helper.search(Checking.class, listChecking.get(0).getAccountID()) != null)
 					{
 						Checking checking = (Checking)helper.search(Checking.class, listChecking.get(0).getAccountID());
-						checking.setStatus("freeze");
+						checking.setStatus(method);
 						if(helper.update(checking))
 							return true;
 						else
@@ -229,7 +229,7 @@ public class AdminDaoImpl implements AdminDao{
 					if(helper.search(Saving.class, listSaving.get(0).getAccountID()) != null)
 					{				
 						Saving saving = (Saving)helper.search(Saving.class, listSaving.get(0).getAccountID());
-						saving.setStatus("freeze");
+						saving.setStatus(method);
 						if(helper.update(saving))
 							return true;
 						else
@@ -274,7 +274,7 @@ public class AdminDaoImpl implements AdminDao{
 					if(helper.search(CreditCard.class, listCard.get(0).getAccountID()) != null)
 					{
 						CreditCard card = (CreditCard)helper.search(CreditCard.class, listCard.get(0).getAccountID());
-						card.setStatus("freeze");
+						card.setStatus(method);
 						if(helper.update(card))
 							return true;
 						else
@@ -304,150 +304,5 @@ public class AdminDaoImpl implements AdminDao{
 		else
 			return false;
 	} 
-		
-	/**
-	 * unfreeze account
-	 */	
-	public boolean unfreezeAccount(String username, String accountType)
-	{
-		if(accountType.equals("checking"))
-		{
-			Session session = HibernateSessionFactory.getSession();
-			String hql1="select u from User as u where u.username=:username";	
-			Query query1 = session.createQuery(hql1);
-			query1.setString("username", username);
-			List<User> listUser = query1.list();	
-			if(listUser.size() != 0)
-			{	
-				String hql2="select c from Checking as c where c.userID=:userID";	
-				Query query2 = session.createQuery(hql2);
-				query2.setInteger("userID", listUser.get(0).getUserID());
-				List<Checking> listChecking = query2.list();
-				if(listChecking.size() != 0)
-				{	
-					if(helper.search(Checking.class, listChecking.get(0).getAccountID()) != null)
-					{
-						Checking checking = (Checking)helper.search(Checking.class, listChecking.get(0).getAccountID());
-						checking.setStatus("available");
-						if(helper.update(checking))
-							return true;
-						else
-						{
-							session.close();
-							return false;
-						}				
-					}
-					else
-					{
-						session.close();
-						return false;
-					}					
-				}
-				else
-				{
-					session.close();
-					return false;
-				}				
-			}
-			else
-			{
-				session.close();
-				return false;
-			}		
-					
-		}
-		else if(accountType.equals("saving"))
-		{
-			Session session = HibernateSessionFactory.getSession();
-			String hql1="select u from User as u where u.username=:username";	
-			Query query1 = session.createQuery(hql1);
-			query1.setString("username", username);
-			List<User> listUser = query1.list();	
-			if(listUser.size() != 0)
-			{	
-				String hql2="select s from Saving as s where s.userID=:userID";	
-				Query query2 = session.createQuery(hql2);
-				query2.setInteger("userID", listUser.get(0).getUserID());
-				List<Saving> listSaving = query2.list();
-				if(listSaving.size() != 0)
-				{	
-					if(helper.search(Saving.class, listSaving.get(0).getAccountID()) != null)
-					{
-						Saving saving = (Saving)helper.search(Saving.class, listSaving.get(0).getAccountID());
-						saving.setStatus("available");
-						if(helper.update(saving))
-							return true;
-						else
-						{
-							session.close();
-							return false;
-						}				
-					}
-					else
-					{
-						session.close();
-						return false;
-					}					
-				}
-				else
-				{
-					session.close();
-					return false;
-				}				
-			}
-			else
-			{
-				session.close();
-				return false;
-			}					
-		}
-		else if(accountType.equals("credit card"))
-		{
-			Session session = HibernateSessionFactory.getSession();
-			String hql1="select u from User as u where u.username=:username";	
-			Query query1 = session.createQuery(hql1);
-			query1.setString("username", username);
-			List<User> listUser = query1.list();	
-			if(listUser.size() != 0)
-			{	
-				String hql2="select cc from CreditCard as cc where cc.userID=:userID";	
-				Query query2 = session.createQuery(hql2);
-				query2.setInteger("userID", listUser.get(0).getUserID());
-				List<CreditCard> listCard = query2.list();
-				if(listCard.size() != 0)
-				{	
-					if(helper.search(CreditCard.class, listCard.get(0).getAccountID()) != null)
-					{
-						CreditCard card = (CreditCard)helper.search(CreditCard.class, listCard.get(0).getAccountID());
-						card.setStatus("available");
-						if(helper.update(card))
-							return true;
-						else
-						{
-							session.close();
-							return false;
-						}				
-					}
-					else
-					{
-						session.close();
-						return false;
-					}					
-				}
-				else
-				{
-					session.close();
-					return false;
-				}				
-			}
-			else
-			{
-				session.close();
-				return false;
-			}				
-		}
-		else
-			return false;				
-	}
-	
+
 }

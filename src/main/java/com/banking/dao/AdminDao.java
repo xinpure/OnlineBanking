@@ -41,12 +41,7 @@ public interface AdminDao {
 	public boolean openCreditCard(String username, CreditCard account);
 	
 	/**
-	 * freeze account
+	 * freeze/release account
 	 */	
-	public boolean freezeAccount(String username, String accountType);
-	
-	/**
-	 * unfreeze account
-	 */	
-	public boolean unfreezeAccount(String username, String accountType);
+	public boolean actionAccount(String username, String accountType, String method);
 }
