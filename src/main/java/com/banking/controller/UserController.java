@@ -1,6 +1,7 @@
 package com.banking.controller;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -56,12 +57,12 @@ public class UserController {
     } 
     return "redirect:/user-panel.jsp";
   }
-  
+
   @RequestMapping(value = "/adminLogin", method = RequestMethod.GET)
   public String getAdminLoginForm() {
     return "admin-login";
   }
-  
+
   @RequestMapping(value = "/adminLogin", method = RequestMethod.POST)
   public String processAdminLoginForm(
       @RequestParam(value = "username") String username,
@@ -73,7 +74,7 @@ public class UserController {
     }
     return "redirect:/admin-panel.jsp";
   }
-  
+
   @RequestMapping(value = "/users", method = RequestMethod.GET)
   public String getUsersForm(Model model) {
     List<User> userList = new ArrayList<User>();
@@ -81,7 +82,44 @@ public class UserController {
     model.addAttribute("userList", userList);
     return "view-user";
   }
-  
+
+  @RequestMapping(value = "/readUser", method = RequestMethod.GET)
+  public String getUserForm(@RequestParam(value = "userID") int userID,
+      Model model) {
+    model.addAttribute("userID", userID);
+    return "redirect:/users";
+  }
+
+  @RequestMapping(value = "/editUser", method = RequestMethod.POST)
+  public String editUser(
+      @RequestParam(value = "userID") int userID,
+      @RequestParam(value = "username") String username,
+      @RequestParam(value = "password") String password,
+      @RequestParam(value = "address") String address,
+      @RequestParam(value = "contact") String contact,
+      @RequestParam(value = "email") String email,
+      @RequestParam(value = "birth") String birth,
+      @RequestParam(value = "ssn") String ssn,
+      @RequestParam(value = "available") boolean available) {
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
+    Date date = null;
+    try {
+      date = sdf.parse(birth);
+    } catch (ParseException e) {
+      e.printStackTrace();
+    }
+    User user = new User(userID, username, password, contact, address, email,
+        date, ssn, available);
+    userService.editUser(user);
+    return "redirect:/users";
+  }
+
+  @RequestMapping(value = "removeUser", method = RequestMethod.POST)
+  public String removeUser(@RequestParam(value = "userID") int userID) {
+    userService.removeUser(userID);
+    return "view-user";
+  }
+
   @InitBinder
   public void bindingPreparation(WebDataBinder binder) {
     DateFormat df = new SimpleDateFormat("yyyy-mm-dd");

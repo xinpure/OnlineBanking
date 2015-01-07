@@ -58,18 +58,12 @@ public class AdminDaoImpl implements AdminDao{
 	/**
 	 * edit user
 	 */	
-	public boolean editUser(int userID, User user)
+	public boolean editUser(User user)
 	{
-		if(helper.search(User.class, userID) != null)
-		{
-			user.setUserID(userID);
-			if(helper.update(user))
-				return true;
-			else
-				return false;				
-		}
+		if(helper.update(user))
+			return true;
 		else
-			return false;
+			return false;				
 	}
 	
 	/**

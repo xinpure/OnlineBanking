@@ -68,11 +68,26 @@ public class UserRepositoryImpl implements UserRepository {
     List<User> listUser = query.list();
     session.close();
     if(listUser.size() != 0)
-        return listUser;    
+      return listUser;    
     else
-        return null;
+      return null;
   }
-  
+
+  public boolean editUser(User user) {
+    if(helper.update(user))
+      return true;
+    else
+      return false;   
+  }
+
+  public boolean removeUser(int userID) {
+    if(helper.delete(helper.search(User.class, userID)))
+      return true;
+    else
+      return false;
+  }
+
+
   public User getUserById(int userID) {
     // TODO Auto-generated method stub
     return null;

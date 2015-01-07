@@ -13,4 +13,8 @@ public interface UserService {
   boolean adminLogin(String username, String password);
   
   List<User> viewUsers();
+  
+  boolean editUser(User user);
+  
+  boolean removeUser(int userID);
 }
