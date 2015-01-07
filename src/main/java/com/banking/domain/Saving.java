@@ -12,7 +12,7 @@ public class Saving extends Account{
 
   private int savingID;
   private double balance;
-  private double interestRate;
+  private double interestRate = 0.01;
 
   // Constructors
 
@@ -21,11 +21,10 @@ public class Saving extends Account{
   }
 
   /** full constructor */
-  public Saving(int accountID, int userID, Date openDate, String status, int savingID, double balance, double interestRate) {
-    super(accountID, userID, status);
+  public Saving(int accountID, int userID, int savingID, double balance) {
+    super(accountID, userID);
     this.savingID = savingID;
     this.balance = balance;
-    this.interestRate = interestRate;
   }
 
   // Property accessors

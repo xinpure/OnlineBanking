@@ -20,8 +20,8 @@ public class Checking extends Account{
   }
 
   /** full constructor */
-  public Checking(int accountID, int userID, Date openDate, String status, int checkingID, double balance) {
-    super(accountID, userID, status);
+  public Checking(int accountID, int userID, int checkingID, double balance) {
+    super(accountID, userID);
     this.checkingID = checkingID;
     this.balance = balance;
   }

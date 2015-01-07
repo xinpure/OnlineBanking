@@ -11,8 +11,8 @@ public class CreditCard extends Account{
     // Fields
 
     private int cardID;
-    private String expireDate;
-    private int CVN;
+    private String expireDate = "1111";
+    private int CVN = 222;
     private double balance;
 
     // Constructors
@@ -22,12 +22,10 @@ public class CreditCard extends Account{
     }
 
     /** full constructor */
-    public CreditCard(int accountID, int userID, Date openDate, String status, int cardID, String expireDate, double balance, int CVN) {
-        super(accountID, userID, status);
+    public CreditCard(int accountID, int userID,int cardID, double balance) {
+        super(accountID, userID);
         this.cardID = cardID;
         this.balance = balance;
-        this.expireDate = expireDate;
-        this.CVN = CVN;
     }
 
     // Property accessors

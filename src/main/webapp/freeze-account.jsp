@@ -13,7 +13,7 @@
 <body class="keBody">
 <h1 class="keTitle">Freeze/Release Account</h1>
 <div class="kePublic-white"> 
-        <form action="freezeAccount" class="login" onsubmit="return validateLogin()">   
+        <form action="freezeReleaseAccount" method="post" class="login" onsubmit="return validateLogin()">   
 	<h1>Freeze/Release Account</h1>
 	<input type="text" id="account" class="login-input" placeholder="Which account you freeze" onfocus="clearTD('accountTD')" autofocus/>
 	<div id="accountTD"></div>

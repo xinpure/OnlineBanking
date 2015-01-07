@@ -37,7 +37,7 @@ $(function () {
 	        <p><span>Open Account</span></p>
 	      </li>
 	      <li>
-	        <div class="ico _4"><a href="/freezeAccount"></a></div>
+	        <div class="ico _4"><a href="freezeReleaseAccount"></a></div>
 	        <p><span>Freeze/Release Account</span></p>
 	      </li>
 	      <li>

@@ -15,7 +15,7 @@
 <body class="keBody">
 	<h1 class="keTitle">Open Account</h1>
 	<div class="kePublic-white">
-		<form action="openAcount" method="post" class="login"
+		<form action="openAccount" method="post" class="login"
 			onsubmit="return validateOpen()">
 			<h1>Open Account</h1>
 			<input type="text" name="account" id="account" class="login-input"

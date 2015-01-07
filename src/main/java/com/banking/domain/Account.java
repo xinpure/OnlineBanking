@@ -22,7 +22,7 @@ public class Account implements java.io.Serializable {
   }
 
   /** full constructor */
-  public Account(int accountID, int userID, String status) {
+  public Account(int accountID, int userID) {
     this.accountID = accountID;
     this.userID = userID;
     this.openDate = new Date();
@@ -79,6 +79,11 @@ public class Account implements java.io.Serializable {
     int result = 17;
     result = 31 * result + accountID;
     return result;
+  }
+  
+  @Override
+  public String toString() {
+    return accountID + " " + userID + " " + openDate + " " + status;
   }
   
 }
