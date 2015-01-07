@@ -15,10 +15,10 @@
 <body class="keBody">
 	<h1 class="keTitle">Open Account</h1>
 	<div class="kePublic-white">
-		<form:form modelAttribute="newAccount" class="login"
+		<form action="openAcount" method="post" class="login"
 			onsubmit="return validateOpen()">
 			<h1>Open Account</h1>
-			<input type="text" id="account" class="login-input"
+			<input type="text" name="account" id="account" class="login-input"
 				placeholder="Which account you open" onfocus="clearTD('accountTD')"
 				autofocus />
 			<div id="accountTD"></div>
@@ -28,10 +28,10 @@
 				<li>saving</li>
 				<li>credit card</li>
 			</ul>
-			<input type="text" id="username" class="login-input"
+			<input type="text" name="username" id="username" class="login-input"
 				placeholder="Which user you open" onfocus="clearTD('usernameTD')">
 			<div id="usernameTD"></div>
-			<input type="text" id="money" class="login-input"
+			<input type="text" name="money" id="money" class="login-input"
 				placeholder="How much money you deposit"
 				onfocus="clearTD('moneyTD')">
 			<div id="moneyTD"></div>
@@ -39,7 +39,7 @@
 			<input type="submit" value="Open" class="login-submit">
 			<input type="button" value="Back" class="login-submit"
 				onclick="javascript:history.go(-1);">
-			</form:form>
+			</form>
 	</div>
 	<%@ include file="footer.jsp"%>
 </body>

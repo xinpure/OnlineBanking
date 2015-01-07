@@ -21,13 +21,25 @@ public class AccountController {
   private AccountService accountService;
   
   @RequestMapping(value = "/openAccount", method = RequestMethod.GET)
-  public String openAccount(Model model) {
-    Account newAccount = new Account();
-    model.addAttribute("newAccount", newAccount);
+  public String getOpenAccountForm(Model model) {
     return "open-account";
   }
   
-  @RequestMapping(value = "openAccount", method = RequestMethod.POST)
+  @RequestMapping(value = "/openAccount", method = RequestMethod.POST)
+  public String processOpenAccountForm(
+      @RequestParam("account") String accountType,
+      @RequestParam("username") String username,
+      @RequestParam("money") String money) {
+    
+  }
+  
+  @RequestMapping(value = "/freezeAccount", method = RequestMethod.GET)
+  public String getFreezeAccountForm() {
+    return "freeze-account";
+  }
+  
+  @RequestMapping(value = "freezeAccount", method = RequestMethod.POST)
+  
   
 //  
 //  @RequestMapping
