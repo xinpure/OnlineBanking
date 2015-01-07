@@ -13,7 +13,7 @@ public class Account implements java.io.Serializable {
   private int accountID;
   private int userID;
   private Date openDate;
-  private String status;
+  private String status = "available";
 
   // Constructors
 
@@ -22,11 +22,10 @@ public class Account implements java.io.Serializable {
   }
 
   /** full constructor */
-  public Account(int accountID, int userID, Date openDate, String status) {
+  public Account(int accountID, int userID, String status) {
     this.accountID = accountID;
     this.userID = userID;
-    this.openDate = openDate;
-    this.status = status;
+    this.openDate = new Date();
   }
 
   // Property accessors

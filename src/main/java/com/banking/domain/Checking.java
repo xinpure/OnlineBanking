@@ -21,7 +21,7 @@ public class Checking extends Account{
 
   /** full constructor */
   public Checking(int accountID, int userID, Date openDate, String status, int checkingID, double balance) {
-    super(accountID, userID, openDate, status);
+    super(accountID, userID, status);
     this.checkingID = checkingID;
     this.balance = balance;
   }

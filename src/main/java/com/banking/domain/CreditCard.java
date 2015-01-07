@@ -23,7 +23,7 @@ public class CreditCard extends Account{
 
     /** full constructor */
     public CreditCard(int accountID, int userID, Date openDate, String status, int cardID, String expireDate, double balance, int CVN) {
-        super(accountID, userID, openDate, status);
+        super(accountID, userID, status);
         this.cardID = cardID;
         this.balance = balance;
         this.expireDate = expireDate;

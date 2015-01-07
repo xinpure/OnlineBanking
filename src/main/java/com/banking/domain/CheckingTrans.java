@@ -18,7 +18,7 @@ public class CheckingTrans extends Transaction{
 
 	public CheckingTrans(int checkingTransID, int checkingID, int userID, int transID, String detail, 
 			Date transDate, double amount, double availableAmount) {
-		super(transID, userID, detail, transDate, amount, availableAmount);
+		super(transID, userID, detail, amount, availableAmount);
 		this.checkingTransID = checkingTransID;
 		this.checkingID = checkingID;
 	}

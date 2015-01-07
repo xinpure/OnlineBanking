@@ -4,20 +4,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Create Sheet</title>
+<title>View Chart</title>
 <link type="text/css" rel="Stylesheet" href="css/bank.css" />
 
 </head>
 <body class="keBody">
-<h1 class="keTitle">Create Sheet</h1>
+<h1 class="keTitle">View Chart</h1>
 <div class="kePublic-white">
 <div>&nbsp;</div>
 <div align="center">
 <div style="width:200px; margin-top:50px;">
-	<input type="button" value="User Sheet" class="login-submit" onclick="" />
+	<input type="button" value="User Chart" class="login-submit" onclick="" />
 </div>
 <div style="width:200px; margin-top:50px;">
-	<input type="button" value="Transaction Sheet" class="login-submit" onclick="" />
+	<input type="button" value="Transaction Chart" class="login-submit" onclick="" />
 </div>
 <div style="width:200px; margin-top:50px;">
 	<input type="button" value="Back" class="login-submit" onclick="javascript:history.go(-1);" />

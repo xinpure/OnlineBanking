@@ -9,30 +9,31 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>View User</title>
 <link type="text/css" rel="Stylesheet" href="css/bank.css" />
+
 </head>
 <body class="keBody">
-	<h1 class="keTitle">View User</h1>
-	<div class="kePublic-white">
-		<div>
-			<form class="form-wrapper cf">
-				<input type="text" placeholder="Search here..." required>
-				<button type="submit">Search</button>
-			</form>
-		</div>
-		<div align="center">
-			<table id="mytable1" cellspacing="0">
-				<caption1>Users </caption1>
-				<tr>
-					<th scope="col">Username</th>
-					<th scope="col">Password</th>
-					<th scope="col">Address</th>
-					<th scope="col">Contact</th>
-					<th scope="col">Email</th>
-					<th scope="col">Birth</th>
-					<th scope="col">SSN</th>
-					<th scope="col">Edit</th>
-					<th scope="col">Remove</th>
-				</tr>
+<h1 class="keTitle">View User</h1>
+<div class="kePublic-white">
+<div>
+<form class="form-wrapper cf">
+        <input type="text" placeholder="Search here..." required>
+        <button type="submit">Search</button>
+    </form>
+</div>
+<div align="center">
+<table id="mytable1" cellspacing="0">  
+<caption1>Users </caption1>  
+  <tr>  
+    <th scope="col">Username</th>  
+    <th scope="col">Password</th>  
+    <th scope="col">Address</th>  
+    <th scope="col">Contact</th> 
+    <th scope="col">Email</th>  
+    <th scope="col">Birth</th>  
+    <th scope="col">SSN</th> 
+    <th scope="col">Edit</th> 
+    <th scope="col">Remove</th> 
+  </tr>  
 				<c:forEach items="${userList}" var="user">
 					<c:choose>
 						<c:when test="${user.userID eq param.userID}">
@@ -93,10 +94,10 @@
 			</table>
 			<div style="width: 200px; margin-top: 50px;">
 				<input type="button" value="Back" class="login-submit"
-					onclick="window.location.replace(" users")" />
+					onclick="window.location.href='admin-panel.jsp'" />
 			</div>
 		</div>
 	</div>
-	<%@ include file="footer.jsp"%>
+<%@ include file="footer.jsp" %> 
 </body>
 </html>

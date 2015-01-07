@@ -85,15 +85,26 @@ public class AdminDaoImpl implements AdminDao{
 	/**
 	 * open account
 	 */	
-	public boolean openChecking(Checking account)
+	public boolean openChecking(String username, Checking account)
 	{
-		if(helper.save(account))
-			return true;
+		Session session = HibernateSessionFactory.getSession();
+		String hql="select u from User as u where u.username=:username";	
+		Query query = session.createQuery(hql);
+		query.setString("username", username);
+		List<CreditCard> listCard = query.list();	
+		if(listCard.size() != 0)
+		{	
+			account.setUserID(listCard.get(0).getUserID());
+			if(helper.save(account))
+				return true;
+			else
+				return false;	
+		}
 		else
-			return false;					
+			return false;
 	}
 	
-	public boolean openSaving(Saving account)
+	public boolean openSaving(String username, Checking account)
 	{
 		if(helper.save(account))
 			return true;
@@ -101,7 +112,7 @@ public class AdminDaoImpl implements AdminDao{
 			return false;	
 	}
 	
-	public boolean openCreditCard(CreditCard account)
+	public boolean openCreditCard(String username, Checking account)
 	{
 		if(helper.save(account))
 			return true;
@@ -112,7 +123,7 @@ public class AdminDaoImpl implements AdminDao{
 	/**
 	 * freeze account
 	 */	
-	public boolean freezeChecking(int accountID)
+	public boolean freezeChecking(String username, String accountType)
 	{
 		if(helper.search(Checking.class, accountID) != null)
 		{
@@ -127,7 +138,7 @@ public class AdminDaoImpl implements AdminDao{
 			return false;				
 	}
 	
-	public boolean freezeSaving(int accountID)
+	public boolean freezeSaving(String username, String accountType)
 	{
 		if(helper.search(Saving.class, accountID) != null)
 		{
@@ -142,7 +153,7 @@ public class AdminDaoImpl implements AdminDao{
 			return false;					
 	}
 	
-	public boolean freezeCreditCard(int accountID)
+	public boolean freezeCreditCard(String username, String accountType)
 	{
 		if(helper.search(CreditCard.class, accountID) != null)
 		{
@@ -160,7 +171,7 @@ public class AdminDaoImpl implements AdminDao{
 	/**
 	 * unfreeze account
 	 */	
-	public boolean unfreezeChecking(int accountID)
+	public boolean unfreezeChecking(String username, String accountType)
 	{
 		if(helper.search(Checking.class, accountID) != null)
 		{
@@ -175,7 +186,7 @@ public class AdminDaoImpl implements AdminDao{
 			return false;				
 	}
 	
-	public boolean unfreezeSaving(int accountID)
+	public boolean unfreezeSaving(String username, String accountType)
 	{
 		if(helper.search(Saving.class, accountID) != null)
 		{
@@ -190,7 +201,7 @@ public class AdminDaoImpl implements AdminDao{
 			return false;					
 	}
 	
-	public boolean unfreezeCreditCard(int accountID)
+	public boolean unfreezeCreditCard(String username, String accountType)
 	{
 		if(helper.search(CreditCard.class, accountID) != null)
 		{
