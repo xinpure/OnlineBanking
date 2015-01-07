@@ -33,4 +33,12 @@ public class UserServiceImpl implements UserService {
   public List<User> viewUsers() {
     return userRepository.getUsers();
   }
+  
+  public boolean editUser(User user) {
+    return userRepository.editUser(user);
+  }
+  
+  public boolean removeUser(int userID) {
+    return userRepository.removeUser(userID);
+  }
 }

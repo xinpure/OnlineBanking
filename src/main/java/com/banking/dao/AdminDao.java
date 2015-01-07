@@ -26,7 +26,7 @@ public interface AdminDao {
 	/**
 	 * edit user
 	 */	
-	public boolean editUser(int userID, User user);
+	public boolean editUser(User user);
 	
 	/**
 	 * delete user

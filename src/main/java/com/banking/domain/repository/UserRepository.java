@@ -12,6 +12,11 @@ public interface UserRepository {
   
   List<User> getUsers();
   
+  boolean editUser(User user);
+  
+  boolean removeUser(int userID);
+  
+  
   
   User getUserById(int userID);
   
