@@ -43,14 +43,10 @@ public interface AdminDao {
 	/**
 	 * freeze account
 	 */	
-	public boolean freezeChecking(String username, String accountType);
-	public boolean freezeSaving(String username, String accountType);
-	public boolean freezeCreditCard(String username, String accountType);	
+	public boolean freezeAccount(String username, String accountType);
 	
 	/**
 	 * unfreeze account
 	 */	
-	public boolean unfreezeChecking(String username, String accountType);
-	public boolean unfreezeSaving(String username, String accountType);
-	public boolean unfreezeCreditCard(String username, String accountType);	
+	public boolean unfreezeAccount(String username, String accountType);
 }
