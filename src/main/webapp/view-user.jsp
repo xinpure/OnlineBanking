@@ -59,7 +59,7 @@
 									<td><input type="text" size="15"
 											value="${user.ssn}" name="ssn" ></td>
 									<td style="width: 65px;"><input type="submit"
-										value="Submit"></td>
+										value="Submit"></td></form>
 								<td style="width: 70px;"><form:form action="removeUser"
 										method="post">
 										<input type="hidden" name="userID" value="${user.userID}">

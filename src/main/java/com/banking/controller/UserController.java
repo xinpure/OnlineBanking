@@ -117,7 +117,7 @@ public class UserController {
   @RequestMapping(value = "removeUser", method = RequestMethod.POST)
   public String removeUser(@RequestParam(value = "userID") int userID) {
     userService.removeUser(userID);
-    return "view-user";
+    return "redirect:/users";
   }
 
   @InitBinder
