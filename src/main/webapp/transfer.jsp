@@ -15,28 +15,11 @@
 <body class="keBody">
 <h1 class="keTitle">Transfer Money</h1>
 <div class="kePublic-white">
-<div align="center">
-<div class="axis"> </div> 
-<div>
-<span class="blcl">Checking Balance: </span>
-<span class="blcr" id="checking">$10,000.00 </span>
-</div> 
-<div>
-<span class="blcl">Saving Balance: </span>
-<span class="blcr" id="saving">$10,000.00 </span>
-</div> 
-<div>
-<span class="blcl">Credit Card Balance: </span>
-<span class="blcr" id="card">$10,000.00 </span>
-</div> 
-<div class="axis"> </div> 
-</div>
 <div>
         <form:form action="transfer" class="login" onsubmit="return validateMoney()">   
 	<h1>Transfer Money</h1>
     <input type="text" name="account" id="account" class="login-input" placeholder="Which way you transfer" onfocus="clearTD('accountTD')" autofocus>
     <div id="accountTD"></div>
-<div style="position:absolute; top:79px; left:0px">
 	<div id="btn_come_from_drop_down" class="select_normal"></div>
 	<ul id="come_from_drop_down" class="area">
 		<li class="active">from checking to saving</li>
@@ -44,7 +27,6 @@
 		<li>from ckecking to credit card</li>
 		<li>from saving to credit card</li>
 	</ul>
-</div>
     <input type="text" name="money" id="money" class="login-input" placeholder="How much money you transfer" onfocus="clearTD('moneyTD')">
     <div id="moneyTD"></div>
 

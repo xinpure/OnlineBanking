@@ -15,31 +15,17 @@
 <body class="keBody">
 <h1 class="keTitle">Withdraw Money</h1>
 <div class="kePublic-white">
-<div align="center">
-<div class="axis"> </div> 
-<div>
-<span class="blcl">Checking Balance: </span>
-<span class="blcr" id="checking">$10,000.00 </span>
-</div> 
-<div>
-<span class="blcl">Saving Balance: </span>
-<span class="blcr" id="saving">$10,000.00 </span>
-</div> 
-<div class="axis"> </div> 
-</div>
 <div>
         <form:form action="withdraw" class="login" onsubmit="return validateMoney()">   
 	<h1>Withdraw Money</h1>
 
    <input type="text" name="account" id="account" class="login-input" placeholder="Which account you withdraw" onfocus="clearTD('accountTD')" autofocus>
     <div id="accountTD"></div>
-<div style="position:absolute; top:56px; left:0px">
 	<div id="btn_come_from_drop_down" class="select_normal"></div>
 	<ul id="come_from_drop_down" class="area">
 		<li class="active">checking</li>
 		<li>saving</li>
 	</ul>
-</div>
     <input type="text" name="money" id="money" class="login-input" placeholder="How much money you withdraw" onfocus="clearTD('moneyTD')" autofocus>
     <div id="moneyTD"></div>
     <input type="submit" value="Withdraw" class="login-submit">

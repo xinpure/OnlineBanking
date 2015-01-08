@@ -25,12 +25,6 @@ $(function () {
 <body class="keBody">
 <h1 class="keTitle">Paid by Credit Card</h1>
 <div class="kePublic-white">
-<div align="center">
-<div class="axis"> </div> 
-<span class="blcl">Credit Card Balance: </span>
-<span class="blcr" id="card">$10,000.00 </span>
-<div class="axis"> </div> 
-</div>
 <div>
         <form:form action="pay" class="login" onsubmit="return validateMoney()">   
 	<h1>Paid by Credit Card</h1>

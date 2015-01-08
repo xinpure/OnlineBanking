@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -35,8 +36,7 @@ function setTab(m,n){
     <ul class="block"><li>
 	<div align="center">
 	<div class="axis"> </div> 
-	<span class="blcl">Checking Balance: </span>
-	<span class="blcr" id="balance">$10,000.00 </span>
+	<span class="blcl">Checking Balance</span>
 	<div class="axis"> </div> 
 	</div>
 <table id="mytable" cellspacing="0">  
@@ -47,31 +47,32 @@ function setTab(m,n){
     <th scope="col">$Amount</th>  
     <th scope="col">$Available Balance</th>  
   </tr>  
-  <tr>  
-    <td>1</td>  
-    <td>2</td>  
-    <td>3</td>  
-    <td>4</td>  
-  </tr>  
-  <tr>  
-    <td class="alt">1</td>  
-    <td class="alt">2</td>  
-    <td class="alt">3</td>  
-    <td class="alt">4</td>  
-  </tr>  
-  <tr>  
-    <td>1</td>  
-    <td>2</td>  
-    <td>3</td>  
-    <td>4</td> 
-  </tr>  
+ 	<c:forEach items="${checkingTrans}" var="checking" varStatus="status">
+		<c:choose>
+		<c:when test="${status.index %2 == 0}">
+			<tr>
+				<td><c:out value="${checking.transDate}"></c:out></td>
+				<td><c:out value="${checking.detail}"></c:out></td>
+				<td><c:out value="${checking.amount}"></c:out></td>
+				<td><c:out value="${checking.availableAmount}"></c:out></td>
+			</tr> 
+		</c:when>
+		<c:otherwise>
+			<tr>
+				<td class="alt"><c:out value="${checking.transDate}"></c:out></td>
+				<td class="alt"><c:out value="${checking.detail}"></c:out></td>
+				<td class="alt"><c:out value="${checking.amount}"></c:out></td>
+				<td class="alt"><c:out value="${checking.availableAmount}"></c:out></td>
+			</tr> 		
+		</c:otherwise>
+		</c:choose>
+	</c:forEach>
 </table>  
     </li></ul>
     <ul><li>
 	<div align="center">
 	<div class="axis"> </div> 
-	<span class="blcl">Saving Balance: </span>
-	<span class="blcr" id="balance">$10,000.00 </span>
+	<span class="blcl">Saving Balance</span>
 	<div class="axis"> </div> 
 	</div>
 <table id="mytable" cellspacing="0">  
@@ -82,32 +83,33 @@ function setTab(m,n){
     <th scope="col">$Amount</th>  
     <th scope="col">$Available Balance</th>  
   </tr>  
-  <tr>  
-    <td>11</td>  
-    <td>21</td>  
-    <td>31</td>  
-    <td>41</td>  
-  </tr>  
-  <tr>  
-    <td class="alt">11</td>  
-    <td class="alt">21</td>  
-    <td class="alt">31</td>  
-    <td class="alt">41</td>  
-  </tr>  
-  <tr>  
-    <td>11</td>  
-    <td>21</td>  
-    <td>31</td>  
-    <td>41</td> 
-  </tr>  
+ 	<c:forEach items="${savingTrans}" var="saving" varStatus="status">
+		<c:choose>
+		<c:when test="${status.index %2 == 0}">
+			<tr>
+				<td><c:out value="${saving.transDate}"></c:out></td>
+				<td><c:out value="${saving.detail}"></c:out></td>
+				<td><c:out value="${saving.amount}"></c:out></td>
+				<td><c:out value="${saving.availableAmount}"></c:out></td>
+			</tr> 
+		</c:when>
+		<c:otherwise>
+			<tr>
+				<td class="alt"><c:out value="${saving.transDate}"></c:out></td>
+				<td class="alt"><c:out value="${saving.detail}"></c:out></td>
+				<td class="alt"><c:out value="${saving.amount}"></c:out></td>
+				<td class="alt"><c:out value="${saving.availableAmount}"></c:out></td>
+			</tr> 		
+		</c:otherwise>
+		</c:choose>
+	</c:forEach>
 </table>  
 
     </li></ul>
     <ul><li>
 	<div align="center">
 	<div class="axis"> </div> 
-	<span class="blcl">Credit Card Balance: </span>
-	<span class="blcr" id="balance">$10,000.00 </span>
+	<span class="blcl">Credit Card Balance</span>
 	<div class="axis"> </div> 
 	</div>
 <table id="mytable" cellspacing="0">  
@@ -118,24 +120,26 @@ function setTab(m,n){
     <th scope="col">$Amount</th>  
     <th scope="col">$Available Balance</th>  
   </tr>  
-  <tr>  
-    <td>12</td>  
-    <td>22</td>  
-    <td>32</td>  
-    <td>42</td>  
-  </tr>  
-  <tr>  
-    <td class="alt">12</td>  
-    <td class="alt">22</td>  
-    <td class="alt">32</td>  
-    <td class="alt">42</td>  
-  </tr>  
-  <tr>  
-    <td>12</td>  
-    <td>22</td>  
-    <td>32</td>  
-    <td>42</td> 
-  </tr>  
+ 	<c:forEach items="${creditCardTrans}" var="card" varStatus="status">
+		<c:choose>
+		<c:when test="${status.index %2 == 0}">
+			<tr>
+				<td><c:out value="${card.transDate}"></c:out></td>
+				<td><c:out value="${card.detail}"></c:out></td>
+				<td><c:out value="${card.amount}"></c:out></td>
+				<td><c:out value="${card.availableAmount}"></c:out></td>
+			</tr> 
+		</c:when>
+		<c:otherwise>
+			<tr>
+				<td class="alt"><c:out value="${card.transDate}"></c:out></td>
+				<td class="alt"><c:out value="${card.detail}"></c:out></td>
+				<td class="alt"><c:out value="${card.amount}"></c:out></td>
+				<td class="alt"><c:out value="${card.availableAmount}"></c:out></td>
+			</tr> 		
+		</c:otherwise>
+		</c:choose>
+	</c:forEach>
 </table>  
     </li></ul>
    </div>
