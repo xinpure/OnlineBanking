@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -52,7 +53,8 @@ public class UserController {
   }
 
   @RequestMapping(value = "/login", method = RequestMethod.POST)
-  public String processLoginForm(@ModelAttribute("user") User user, Model model) {
+  public String processLoginForm(@ModelAttribute("user") User user, Model model,
+      HttpSession session) {
     boolean loginStatus = userService.login(user);
     if (loginStatus == false) {
       model.addAttribute("loginStatus", "Login failed");
@@ -60,6 +62,7 @@ public class UserController {
     }
     System.out.println(user.getUsername());    
     System.out.println(user.getUserID());
+    session.setAttribute("userID", user.getUserID());
     return "redirect:/user-panel.jsp";
   }
 
