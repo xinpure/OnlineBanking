@@ -2,6 +2,8 @@ package com.banking.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,10 +20,9 @@ public class TransactionController {
   @Autowired
   private TransactionService transactionService;
  
-  int userID = 13;
-  
   @RequestMapping(value = "/balance", method = RequestMethod.GET)
-  public String getBalance(Model model) {
+  public String getBalance(Model model, HttpSession session) {
+    int userID = (Integer) session.getAttribute("userID");
     List<List<Transaction>> transLists = transactionService.viewTrans(userID);
     model.addAttribute("checkingTrans", transLists.get(0));
     model.addAttribute("savingTrans", transLists.get(1));
@@ -38,7 +39,8 @@ public class TransactionController {
   @RequestMapping(value = "/pay", method = RequestMethod.POST)
   public String processPayForm(
       @RequestParam("expire") String expireDate,
-      @RequestParam("cvn") String cvn) {
+      @RequestParam("cvn") String cvn, HttpSession session) {
+    int userID = (Integer) session.getAttribute("userID");
     int CVN = Integer.parseInt(cvn);
     transactionService.paidbyCreditCard(userID, CVN, expireDate);
     return "redirect:/balance";
@@ -52,7 +54,8 @@ public class TransactionController {
   @RequestMapping(value = "/withdraw", method = RequestMethod.POST)
   public String processWithdrawForm(
       @RequestParam("account") String accountType,
-      @RequestParam("money") String money) {
+      @RequestParam("money") String money, HttpSession session) {
+    int userID = (Integer) session.getAttribute("userID");
     Double amount = Double.parseDouble(money);
     transactionService.withdrawMoney(userID, accountType, amount);
     return "redirect:/balance";
@@ -66,7 +69,8 @@ public class TransactionController {
   @RequestMapping(value = "/transfer", method = RequestMethod.POST)
   public String processTransferForm(
       @RequestParam("account") String method,
-      @RequestParam("money") String money) {
+      @RequestParam("money") String money, HttpSession session) {
+    int userID = (Integer) session.getAttribute("userID");
     Double amount = Double.parseDouble(money);
     transactionService.transferMoney(userID, method, amount);
     return "redirect:/balance";

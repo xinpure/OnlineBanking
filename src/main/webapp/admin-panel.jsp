@@ -42,7 +42,7 @@ $(function () {
 	      </li>
 	      <li>
 	        <div class="ico _5"><a href="sheets.jsp"></a></div>
-	        <p><span>View Chart</span></p>
+	        <p><span>Statistics</span></p>
 	      </li>
 	      <li>
 	        <div class="ico _6"><a href="index.jsp"></a></div>

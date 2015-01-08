@@ -20,7 +20,7 @@
 					<li class="s1"><a href="">Menu</a>
 						<ul class="p2">
 							<li class="s2"><a href="index.jsp"><span>Index</span></a></li>
-							<li class="s2"><a href="user-login.jsp"><span>User</span></a></li>
+							<li class="s2"><a href="login"><span>User</span></a></li>
 							<li class="s2"><a href="about-us.jsp"><span>About
 										Us</span></a></li>
 							<li class="s2"><a href="contact-us.jsp"><span>Contact</span></a></li>

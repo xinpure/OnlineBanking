@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,9 +59,8 @@ public class UserController {
       model.addAttribute("loginStatus", "Login failed");
       return "user-login";
     }
-    System.out.println(user.getUsername());    
-    System.out.println(user.getUserID());
-    session.setAttribute("userID", user.getUserID());
+    int userID = userService.getUserID(user.getUsername(), user.getPassword());
+    session.setAttribute("userID", userID);
     return "redirect:/user-panel.jsp";
   }
 

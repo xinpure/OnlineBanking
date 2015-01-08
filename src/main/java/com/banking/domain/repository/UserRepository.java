@@ -19,4 +19,6 @@ public interface UserRepository {
   boolean changePassword(int userID, String password);
   
   String forgetPassword(String username, String email, String ssn);
+  
+  int getUserID(String username, String password);
 }
