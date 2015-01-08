@@ -19,4 +19,6 @@ public interface UserService {
   boolean removeUser(int userID);
   
   boolean changePassword(int userID, String password);
+  
+  String forgetPassword(String username, String email, String ssn);
 }

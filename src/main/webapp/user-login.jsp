@@ -44,7 +44,7 @@
 					<input type="submit" value="Login" class="login-submit">
 					<div class="loginStatus">${loginStatus}</div>
 					<p class="login-help">
-						<a href="forget-password.jsp">Forgot password?</a>
+						<a href="forget">Forgot password?</a>
 					</p>
 			</form:form>
 		</div>
