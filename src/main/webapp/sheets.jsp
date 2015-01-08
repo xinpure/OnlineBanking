@@ -14,7 +14,7 @@
 <div>&nbsp;</div>
 <div align="center">
 <div style="width:200px; margin-top:50px;">
-	<input type="button" value="User Chart" class="login-submit" onclick="" />
+	<input type="button" value="Account Status Chart" class="login-submit" onclick="window.location.href='chart'" />
 </div>
 <div style="width:200px; margin-top:50px;">
 	<input type="button" value="Generate User File" class="login-submit" onclick="window.location.href='export'" />
