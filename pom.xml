@@ -56,14 +56,21 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>4.3.7.Final</version>
 		</dependency>
-		
+
 		<!-- mysql -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.6</version>
 		</dependency>
-
+		
+		<!-- Apache POI -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.8</version>
+		</dependency>
+		
 	</dependencies>
 	<build>
 		<finalName>Banking</finalName>

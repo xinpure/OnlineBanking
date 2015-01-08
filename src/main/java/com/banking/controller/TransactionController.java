@@ -2,6 +2,8 @@ package com.banking.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +23,9 @@ public class TransactionController {
   int userID = 13;
   
   @RequestMapping(value = "/balance", method = RequestMethod.GET)
-  public String getBalance(Model model) {
+  public String getBalance(Model model, HttpSession session) {
+    int userID = (Integer) session.getAttribute("userID");
+    System.out.println(userID);
     List<List<Transaction>> transLists = transactionService.viewTrans(userID);
     model.addAttribute("checkingTrans", transLists.get(0));
     model.addAttribute("savingTrans", transLists.get(1));
