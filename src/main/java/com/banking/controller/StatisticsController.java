@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.sf.json.JSONArray;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,9 +21,13 @@ import com.banking.util.Export;
 
 @Controller
 public class StatisticsController {
+  
+  private static Logger logger = Logger.getLogger("controller");
 
   @RequestMapping(value = "/export", method = RequestMethod.GET)
   public void getXLS(HttpServletResponse response, Model model) throws ClassNotFoundException {
+    logger.debug("Received request to download report as an XLS");
+    System.out.println("generating xls");
     new Export().downloadXLS(response);
   }
 
@@ -31,10 +36,12 @@ public class StatisticsController {
     System.out.println("getting chart");
     response.setCharacterEncoding("utf-8");
     PrintWriter out = response.getWriter();
-    List<Map<String,Object>> list = null;
+    List<Map<String,Integer>> list = null;
     list = new Chart().pieFindInfo();
+    System.out.println("list" + list);
     JSONArray json = JSONArray.fromObject(list);
     out.print(json);
+    System.out.println("json" + json);
   }
 
 }
