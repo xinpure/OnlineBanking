@@ -1,3 +1,5 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -30,19 +32,17 @@ $(function () {
 <div class="axis"> </div> 
 </div>
 <div>
-        <form action="" class="login" onsubmit="return validateMoney()">   
+        <form:form action="pay" class="login" onsubmit="return validateMoney()">   
 	<h1>Paid by Credit Card</h1>
-    <input type="text" id="account" class="login-input" placeholder="Credit card number" onfocus="clearTD('accountTD')" autofocus>
-    <div id="accountTD"></div>
-    <input type="text" id="expire" class="login-input" placeholder="Expire" onfocus="clearTD('expireTD')">
+    <input type="text" name="expire" id="expire" class="login-input" placeholder="Expire" onfocus="clearTD('expireTD')">
     <div id="expireTD"></div>
-    <input type="text" id="CVN" class="login-input" placeholder="CVN" onfocus="clearTD('CVNTD')">
+    <input type="text" name="cvn" id="CVN" class="login-input" placeholder="CVN" onfocus="clearTD('CVNTD')">
     <div id="CVNTD"></div>
 <div id="help"></div>
 <div id="cvnMode"></div>
     <input type="submit" value="Pay" class="login-submit">
     <input type="button" value="Back" class="login-submit" onclick="javascript:history.go(-1);">
-  </form>
+  </form:form>
 </div >
 </div>
 <%@ include file="footer.jsp" %> 

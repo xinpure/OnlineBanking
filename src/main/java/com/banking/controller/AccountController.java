@@ -41,8 +41,7 @@ public class AccountController {
     else if (accountType.equalsIgnoreCase("credit card")) {
       account = new CreditCard(0, 0, 0, balance);
     }
-    System.out.println(account);
-    accountService.openAccount(account);
+    accountService.openAccount(username, account);
     return "redirect:/admin-panel.jsp";
   }
   
@@ -59,7 +58,7 @@ public class AccountController {
     if (actionType.equalsIgnoreCase("freeze")) {
       accountService.freezeAccount(username, accountType);
     }
-    else if (actionType.equalsIgnoreCase("avaialbe")) {
+    else if (actionType.equalsIgnoreCase("available")) {
       accountService.releaseAccount(username, accountType);
     }
     return "redirect:/admin-panel.jsp";

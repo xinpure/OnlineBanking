@@ -18,4 +18,16 @@ public class TransactionServiceImpl implements TransactionService {
   public List<List<Transaction>> viewTrans(int userID) {
     return transactionRepository.viewTrans(userID);
   }
+  
+  public String paidbyCreditCard(int userID, int CVN, String expireDate) {
+    return transactionRepository.paidbyCreditCard(userID, CVN, expireDate);
+  }
+  
+  public String withdrawMoney(int userID, String accountType, double amount) {
+    return transactionRepository.withdrawMoney(userID, accountType, amount);
+  }
+  
+  public String transferMoney(int userID, String method, double amount) {
+    return transactionRepository.transferMoney(userID, method, amount);
+  }
 }

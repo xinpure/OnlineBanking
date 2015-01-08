@@ -1,3 +1,5 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -26,10 +28,10 @@
 <div class="axis"> </div> 
 </div>
 <div>
-        <form action="" class="login" onsubmit="return validateMoney()">   
+        <form:form action="withdraw" class="login" onsubmit="return validateMoney()">   
 	<h1>Withdraw Money</h1>
 
-   <input type="text" id="account" class="login-input" placeholder="Which account you withdraw" onfocus="clearTD('accountTD')" autofocus>
+   <input type="text" name="account" id="account" class="login-input" placeholder="Which account you withdraw" onfocus="clearTD('accountTD')" autofocus>
     <div id="accountTD"></div>
 <div style="position:absolute; top:56px; left:0px">
 	<div id="btn_come_from_drop_down" class="select_normal"></div>
@@ -38,11 +40,11 @@
 		<li>saving</li>
 	</ul>
 </div>
-    <input type="text" id="money" class="login-input" placeholder="How much money you withdraw" onfocus="clearTD('moneyTD')" autofocus>
+    <input type="text" name="money" id="money" class="login-input" placeholder="How much money you withdraw" onfocus="clearTD('moneyTD')" autofocus>
     <div id="moneyTD"></div>
     <input type="submit" value="Withdraw" class="login-submit">
     <input type="button" value="Back" class="login-submit" onclick="javascript:history.go(-1);">
-  </form>
+  </form:form>
 
 </div>
 </div>

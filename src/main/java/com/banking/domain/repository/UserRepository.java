@@ -16,6 +16,6 @@ public interface UserRepository {
   
   boolean removeUser(int userID);
   
-  
+  boolean changePassword(int userID, String password);
   
 }

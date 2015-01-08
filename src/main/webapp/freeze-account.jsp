@@ -1,3 +1,5 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -13,7 +15,7 @@
 <body class="keBody">
 <h1 class="keTitle">Freeze/Release Account</h1>
 <div class="kePublic-white"> 
-        <form action="freezeReleaseAccount" method="post" class="login" onsubmit="return validateLogin()">   
+        <form:form action="freezeReleaseAccount" method="post" class="login" onsubmit="return validateLogin()">   
 	<h1>Freeze/Release Account</h1>
 	<input type="text" name="account" id="account" class="login-input" placeholder="Which account you freeze" onfocus="clearTD('accountTD')" autofocus/>
 	<div id="accountTD"></div>
@@ -36,7 +38,7 @@
  	</div>
     <input type="submit" value="Submit" class="login-submit">
     <input type="button" value="Back" class="login-submit" onclick="javascript:history.go(-1);">
-  </form>
+  </form:form>
 </div>
 <%@ include file="footer.jsp" %> 
 </body>

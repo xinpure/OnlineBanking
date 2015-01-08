@@ -29,6 +29,7 @@ public class UserController {
   @Autowired
   private UserService userService;
 
+  int userID = 13;
 
   @RequestMapping(value = "/register", method = RequestMethod.GET)
   public String getAddUserForm(Model model) {
@@ -57,6 +58,7 @@ public class UserController {
       model.addAttribute("loginStatus", "Login failed");
       return "user-login";
     }
+    System.out.println(user.getUsername());
     return "redirect:/user-panel.jsp";
   }
 
@@ -116,10 +118,22 @@ public class UserController {
     return "redirect:/users";
   }
 
-  @RequestMapping(value = "removeUser", method = RequestMethod.POST)
+  @RequestMapping(value = "/removeUser", method = RequestMethod.POST)
   public String removeUser(@RequestParam(value = "userID") int userID) {
     userService.removeUser(userID);
     return "redirect:/users";
+  }
+  
+  @RequestMapping(value = "/password", method = RequestMethod.GET)
+  public String getChangePasswordForm() {
+    return "change-password";
+  }
+  
+  @RequestMapping(value = "/password", method = RequestMethod.POST)
+  public String processChangePasswordForm(
+      @RequestParam("password") String password) {
+    userService.changePassword(userID, password);
+    return "user-panel";
   }
 
   @InitBinder

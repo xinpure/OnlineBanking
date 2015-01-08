@@ -86,5 +86,23 @@ public class UserRepositoryImpl implements UserRepository {
     else
       return false;
   }
-
+  
+  public boolean changePassword(int userID, String password) {
+    Session session = HibernateSessionFactory.getSession();
+    String hql="select u from User as u where u.userID=:userID";    
+    Query query = session.createQuery(hql);
+    query.setInteger("userID", userID);
+    List<User> listUser = query.list();
+    session.close();    
+    if(listUser.size() != 0)
+    {
+      listUser.get(0).setPassword(password);
+      if(helper.update(listUser.get(0)))
+        return true;
+      else
+        return false;           
+    }   
+    else
+      return false;                       
+  }
 }

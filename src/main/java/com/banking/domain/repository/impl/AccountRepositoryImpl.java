@@ -19,42 +19,93 @@ import com.banking.util.HibernateSessionFactory;
 public class AccountRepositoryImpl implements AccountRepository {
   private HibernateBaseDao helper = new HibernateBaseDao();
 
-  public boolean openAccount(Account account)
+  public boolean openAccount(String username, Account account)
   {
     if (account instanceof Checking) {
-      return openChecking((Checking) account);
+      return openChecking(username, (Checking) account);
     }
     else if (account instanceof Saving) {
-      return openSaving((Saving) account);
+      return openSaving(username, (Saving) account);
     }
     else if (account instanceof CreditCard) {
-      return openCreditCard((CreditCard) account);
+      return openCreditCard(username, (CreditCard) account);
     }
     return false;
   }
   
-  public boolean openChecking(Checking account)
+  public boolean openChecking(String username, Checking account)
   {
-      if(helper.save(account))
-          return true;
+      Session session = HibernateSessionFactory.getSession();
+      String hql="select u from User as u where u.username=:username";    
+      Query query = session.createQuery(hql);
+      query.setString("username", username);
+      List<User> listUser = query.list(); 
+      if(listUser.size() != 0)
+      {   
+          account.setUserID(listUser.get(0).getUserID());
+          if(helper.save(account))
+              return true;
+          else
+          {
+              session.close();
+              return false;
+          }
+      }
       else
-          return false;                   
+      {
+          session.close();
+          return false;
+      }
   }
   
-  public boolean openSaving(Saving account)
+  public boolean openSaving(String username, Saving account)
   {
-      if(helper.save(account))
-          return true;
+      Session session = HibernateSessionFactory.getSession();
+      String hql="select u from User as u where u.username=:username";    
+      Query query = session.createQuery(hql);
+      query.setString("username", username);
+      List<User> listUser = query.list(); 
+      if(listUser.size() != 0)
+      {   
+          account.setUserID(listUser.get(0).getUserID());
+          if(helper.save(account))
+              return true;
+          else
+          {
+              session.close();
+              return false;
+          }   
+      }
       else
-          return false;   
+      {
+          session.close();
+          return false;
+      }
   }
   
-  public boolean openCreditCard(CreditCard account)
+  public boolean openCreditCard(String username, CreditCard account)
   {
-      if(helper.save(account))
-          return true;
+      Session session = HibernateSessionFactory.getSession();
+      String hql="select u from User as u where u.username=:username";    
+      Query query = session.createQuery(hql);
+      query.setString("username", username);
+      List<User> listUser = query.list(); 
+      if(listUser.size() != 0)
+      {   
+          account.setUserID(listUser.get(0).getUserID());
+          if(helper.save(account))
+              return true;
+          else
+          {
+              session.close();
+              return false;
+          }   
+      }
       else
-          return false;       
+      {
+          session.close();
+          return false;
+      }       
   }
   
   public boolean freezeAccount(String username, String accountType) {
@@ -62,7 +113,7 @@ public class AccountRepositoryImpl implements AccountRepository {
   }
   
   public boolean releaseAccount(String username, String accountType) {
-    return actionAccount(username, accountType, "release");
+    return actionAccount(username, accountType, "available");
   }
   
   public boolean actionAccount(String username, String accountType, String method)

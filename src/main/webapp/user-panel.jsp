@@ -29,19 +29,19 @@ $(function () {
 	        <p><span>Account Balance</span></p>
 	      </li>
 	      <li>
-	        <div class="ico _2"><a href="change-password.jsp"></a></div>
+	        <div class="ico _2"><a href="password"></a></div>
 	        <p><span>Change Password</span></p>
 	      </li>
 	      <li>
-	        <div class="ico _3"><a href="credit-card.jsp"></a></div>
+	        <div class="ico _3"><a href="pay"></a></div>
 	        <p><span>Paid by Credit Card</span></p>
 	      </li>
 	      <li>
-	        <div class="ico _4"><a href="withdraw.jsp"></a></div>
+	        <div class="ico _4"><a href="withdraw"></a></div>
 	        <p><span>Withdraw Money</span></p>
 	      </li>
 	      <li>
-	        <div class="ico _5"><a href="transfer.jsp"></a></div>
+	        <div class="ico _5"><a href="transfer"></a></div>
 	        <p><span>Account Transfer</span></p>
 	      </li>
 	      <li>

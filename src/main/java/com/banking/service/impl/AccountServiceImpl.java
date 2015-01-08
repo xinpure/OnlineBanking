@@ -14,8 +14,8 @@ public class AccountServiceImpl implements AccountService {
   private AccountRepository accountRepository;
   
 
-  public boolean openAccount(Account account) {
-    return accountRepository.openAccount(account);
+  public boolean openAccount(String username, Account account) {
+    return accountRepository.openAccount(username, account);
   }
   
   public boolean freezeAccount(String username, String accountType) {
