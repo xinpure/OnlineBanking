@@ -240,7 +240,7 @@ table {
 .select_active1{background:url(../images/ico.jpg) no-repeat -256px -53px;position:absolute;top:234px;left:1061px;width:50px;height:40px;cursor:pointer;}
 
 #help {background:url(../images/help.png) no-repeat;
-position:absolute;top:335px;left:1075px;width:30px;height:30px;}
+position:absolute;top:240px;left:1075px;width:30px;height:30px;}
 
 #cvnMode {background:url(../images/CVN.png) no-repeat;
 position:absolute;top:235px;left:1105px;width:550px;height:275px; visibility:hidden;}
