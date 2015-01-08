@@ -121,4 +121,22 @@ public class UserDaoImpl {
 		else
 			return null;		
 	}
+	
+	/**
+	 * get userID
+	 */	
+	public int getUserID(String username, String password)
+	{
+		Session session = HibernateSessionFactory.getSession();
+        String hql="select u from User as u where u.username=:username and u.password=:password";	
+		Query query = session.createQuery(hql);
+		query.setString("username", username);
+		query.setString("password", password);
+		List<User> listUser = query.list();
+		session.close();	
+		if(listUser.size() != 0)
+			return listUser.get(0).getUserID();		
+		else
+			return 0;				
+	}
 }

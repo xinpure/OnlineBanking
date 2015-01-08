@@ -28,4 +28,9 @@ public interface UserDao {
 	 * forget password
 	 */	
 	public String forgetPassword(String username, String email, String ssn);
+	
+	/**
+	 * get userID
+	 */	
+	public int getUserID(String username, String password);
 }
