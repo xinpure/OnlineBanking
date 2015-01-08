@@ -20,7 +20,7 @@ $(function () {
 </script>
 </head>
 <body class="keBody">
-<h1 class="keTitle">User Panel - ${userID}</h1>
+<h1 class="keTitle">User Panel</h1>
 <div class="kePublic-white">
 	<div id="order_nav">
 	    <ul class="list not_ie">

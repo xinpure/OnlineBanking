@@ -104,7 +104,7 @@ public class User implements java.io.Serializable {
         this.ssn = ssn;
     }
 
-    public boolean isAvailable() {
+    public boolean getAvailable() {
         return available;
     }
 

@@ -55,4 +55,8 @@ public class UserServiceImpl implements UserService {
   public String forgetPassword(String username, String email, String ssn) {
     return userRepository.forgetPassword(username, email, ssn);
   }
+  
+  public int getUserID(String username, String password) {
+    return userRepository.getUserID(username, password);
+  }
 }

@@ -17,7 +17,7 @@
 	<input type="button" value="User Chart" class="login-submit" onclick="" />
 </div>
 <div style="width:200px; margin-top:50px;">
-	<input type="button" value="Transaction Chart" class="login-submit" onclick="" />
+	<input type="button" value="Generate User File" class="login-submit" onclick="window.location.href='export'" />
 </div>
 <div style="width:200px; margin-top:50px;">
 	<input type="button" value="Back" class="login-submit" onclick="javascript:history.go(-1);" />

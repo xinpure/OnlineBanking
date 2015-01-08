@@ -59,9 +59,8 @@ public class UserController {
       model.addAttribute("loginStatus", "Login failed");
       return "user-login";
     }
-    System.out.println(user.getUsername());    
-    System.out.println(user.getUserID());
-    session.setAttribute("userID", user.getUserID());
+    int userID = userService.getUserID(user.getUsername(), user.getPassword());
+    session.setAttribute("userID", userID);
     return "redirect:/user-panel.jsp";
   }
 
