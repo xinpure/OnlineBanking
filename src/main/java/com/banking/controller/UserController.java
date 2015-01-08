@@ -58,7 +58,8 @@ public class UserController {
       model.addAttribute("loginStatus", "Login failed");
       return "user-login";
     }
-    System.out.println(user.getUsername());
+    System.out.println(user.getUsername());    
+    System.out.println(user.getUserID());
     return "redirect:/user-panel.jsp";
   }
 
@@ -134,6 +135,21 @@ public class UserController {
       @RequestParam("password") String password) {
     userService.changePassword(userID, password);
     return "user-panel";
+  }
+  
+  @RequestMapping(value = "/forget", method = RequestMethod.GET)
+  public String getForgetPasswordForm() {
+    return "forget-password";
+  }
+  
+  @RequestMapping(value = "/forget", method = RequestMethod.POST)
+  public String processForgetPasswordForm(Model model,
+      @RequestParam("username") String username,
+      @RequestParam("email") String email,
+      @RequestParam("ssn") String ssn) {
+    String password = userService.forgetPassword(username, email, ssn);
+    model.addAttribute("password", password);
+    return "forget-password";
   }
 
   @InitBinder

@@ -105,4 +105,19 @@ public class UserRepositoryImpl implements UserRepository {
     else
       return false;                       
   }
+  
+  public String forgetPassword(String username, String email, String ssn) {
+      Session session = HibernateSessionFactory.getSession();
+      String hql="select u from User as u where u.username=:username and u.email=:email and u.ssn=:ssn";  
+      Query query = session.createQuery(hql);
+      query.setString("username", username);
+      query.setString("email", email);
+      query.setString("ssn", ssn);
+      List<User> listUser = query.list();
+      session.close();    
+      if(listUser.size() != 0)
+          return listUser.get(0).getPassword();       
+      else
+          return null;        
+  }
 }
