@@ -8,8 +8,6 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.sf.json.JSONArray;
-
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.banking.util.Chart;
 import com.banking.util.Export;
+import com.google.gson.Gson;
 
 @Controller
 public class StatisticsController {
@@ -39,9 +38,10 @@ public class StatisticsController {
     List<Map<String,Integer>> list = null;
     list = new Chart().pieFindInfo();
     System.out.println("list" + list);
-    JSONArray json = JSONArray.fromObject(list);
-    out.print(json);
+    Gson gson = new Gson();
+    String json = gson.toJson(list);
     System.out.println("json" + json);
+    out.print(json);
   }
 
 }
