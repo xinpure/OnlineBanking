@@ -19,8 +19,6 @@ public class Chart {
     Query query2 = session.createQuery(hql2);
     int availableCount = ((Long) query2.uniqueResult()).intValue();
     session.close();
-    System.out.println(freezeCount + " " + availableCount);
-    
     List<Map<String, Integer>> list = new ArrayList<Map<String, Integer>>();
     Map<String, Integer> map = new HashMap<String, Integer>();
     map.put("freeze", freezeCount);
