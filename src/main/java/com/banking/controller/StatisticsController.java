@@ -30,17 +30,15 @@ public class StatisticsController {
     new Export().downloadXLS(response);
   }
 
-  @RequestMapping(value = "/chart", method = RequestMethod.GET)
+  @RequestMapping(value = "/chart", method={RequestMethod.GET,RequestMethod.POST})
   public void getChart(HttpServletRequest request,HttpServletResponse response) throws IOException{
     System.out.println("getting chart");
     response.setCharacterEncoding("utf-8");
     PrintWriter out = response.getWriter();
-    List<Map<String,Integer>> list = null;
+    List<Map<String,Object>> list = null;
     list = new Chart().pieFindInfo();
-    System.out.println("list" + list);
     Gson gson = new Gson();
     String json = gson.toJson(list);
-    System.out.println("json" + json);
     out.print(json);
   }
 
