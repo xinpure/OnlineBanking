@@ -1,6 +1,5 @@
 package com.banking.domain;
 
-import java.util.Date;
 
 public class Checking extends Account{
 

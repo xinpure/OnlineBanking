@@ -2,7 +2,6 @@ package com.banking.util;
 
 import java.util.Date;
 
-import org.apache.log4j.Logger;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFRow;
@@ -14,8 +13,6 @@ import org.apache.poi.ss.usermodel.Font;
 
 
 public class Layouter {
-
-  private static Logger logger = Logger.getLogger("service");
 
   /**
    * Builds the report layout. 
@@ -124,7 +121,7 @@ public class Layouter {
     HSSFCell cell6 = rowHeader.createCell(startColIndex+5);
     cell6.setCellValue("email");
     cell6.setCellStyle(headerCellStyle);
-    
+
     HSSFCell cell7 = rowHeader.createCell(startColIndex+6);
     cell7.setCellValue("birth");
     cell7.setCellStyle(headerCellStyle);

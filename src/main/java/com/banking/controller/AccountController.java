@@ -2,8 +2,6 @@ package com.banking.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,12 +17,12 @@ public class AccountController {
 
   @Autowired
   private AccountService accountService;
-  
+
   @RequestMapping(value = "/openAccount", method = RequestMethod.GET)
   public String getOpenAccountForm() {
     return "open-account";
   }
-  
+
   @RequestMapping(value = "/openAccount", method = RequestMethod.POST)
   public String processOpenAccountForm(
       @RequestParam("account") String accountType,
@@ -44,12 +42,12 @@ public class AccountController {
     accountService.openAccount(username, account);
     return "redirect:/admin-panel.jsp";
   }
-  
+
   @RequestMapping(value = "/freezeReleaseAccount", method = RequestMethod.GET)
   public String getFreezeAccountForm() {
     return "freeze-account";
   }
-  
+
   @RequestMapping(value = "/freezeReleaseAccount", method = RequestMethod.POST)
   public String processFreezeAccountForm(
       @RequestParam("account") String accountType,
@@ -63,12 +61,5 @@ public class AccountController {
     }
     return "redirect:/admin-panel.jsp";
   }
-  
-  
-  
-  
-  @InitBinder
-  public void initialiseBinder(WebDataBinder binder) {
-    binder.setDisallowedFields("openDate");
-  }
+
 }
