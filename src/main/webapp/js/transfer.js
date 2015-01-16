@@ -13,7 +13,7 @@ function validateMoney()
 		return false;
 	}
 
-	if(!(ca.value=="from checking to saving" || ca.value=="from saving to checking" || ca.value=="from ckecking to credit card" || ca.value=="from saving to credit card"))
+	if(!(ca.value=="from checking to saving" || ca.value=="from saving to checking" || ca.value=="from checking to credit card" || ca.value=="from saving to credit card"))
 	{
 		caTD.innerHTML="<font style='color:red; font-size:18px'>*Please enter the valid way</font>";
 		return false;

@@ -147,7 +147,7 @@ function setTab(m,n){
 </div>
 
 <div style="width:200px; margin-top:50px;">
-	<input type="button" value="Back" class="login-submit" onclick="javascript:history.go(-1);" />
+	<input type="button" value="Back" class="login-submit" onclick="window.location.href='user-panel.jsp'" />
 </div>
 </div>
 </div>

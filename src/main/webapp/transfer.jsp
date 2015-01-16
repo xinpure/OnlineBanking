@@ -24,7 +24,7 @@
 	<ul id="come_from_drop_down" class="area">
 		<li class="active">from checking to saving</li>
 		<li>from saving to checking</li>
-		<li>from ckecking to credit card</li>
+		<li>from checking to credit card</li>
 		<li>from saving to credit card</li>
 	</ul>
     <input type="text" name="money" id="money" class="login-input" placeholder="How much money you transfer" onfocus="clearTD('moneyTD')">
