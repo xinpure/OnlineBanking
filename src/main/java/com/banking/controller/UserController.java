@@ -29,8 +29,6 @@ public class UserController {
   @Autowired
   private UserService userService;
 
-  int userID = 13;
-
   @RequestMapping(value = "/register", method = RequestMethod.GET)
   public String getAddUserForm(Model model) {
     User newUser = new User();
@@ -133,7 +131,8 @@ public class UserController {
   
   @RequestMapping(value = "/password", method = RequestMethod.POST)
   public String processChangePasswordForm(
-      @RequestParam("password") String password) {
+      @RequestParam("password") String password, HttpSession session) {
+    int userID = (Integer) session.getAttribute("userID");
     userService.changePassword(userID, password);
     return "user-panel";
   }

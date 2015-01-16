@@ -28,7 +28,6 @@ public class Export {
    * 7. Write to the output stream
    * </pre>
    */
-  @SuppressWarnings("unchecked")
   public void downloadXLS(HttpServletResponse response) throws ClassNotFoundException {
    logger.debug("Downloading Excel report");
     

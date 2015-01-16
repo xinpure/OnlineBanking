@@ -2,24 +2,18 @@ package com.banking.service.impl;
 
 import java.util.List;
 
-import org.hibernate.Query;
-import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.banking.domain.User;
 import com.banking.domain.repository.UserRepository;
 import com.banking.service.UserService;
-import com.banking.util.HibernateBaseDao;
-import com.banking.util.HibernateSessionFactory;
 
 @Service
 public class UserServiceImpl implements UserService {
 
   @Autowired
   private UserRepository userRepository;
-
-  private HibernateBaseDao helper = new HibernateBaseDao();
 
   public void addUser(User user) {
     userRepository.addUser(user);
